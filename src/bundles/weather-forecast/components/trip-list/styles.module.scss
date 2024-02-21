@@ -1,0 +1,9 @@
+.tripList {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  column-gap: 50px;
+  margin-block: 25px;
+  padding-bottom: 10px;
+  position: relative;
+}

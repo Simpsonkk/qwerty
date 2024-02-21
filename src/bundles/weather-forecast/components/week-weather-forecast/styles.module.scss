@@ -1,0 +1,13 @@
+.title {
+  margin-bottom: 20px;
+}
+
+.weekWeatherForecast {
+  display: flex;
+  padding-block: 10px;
+  column-gap: 60px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  transform: rotateX(180deg);
+}

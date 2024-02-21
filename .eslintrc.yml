@@ -1,0 +1,166 @@
+root: true
+parserOptions:
+  ecmaVersion: 2021
+  sourceType: module
+  project:
+    - ./tsconfig.json
+
+env:
+  browser: true
+
+settings:
+  react:
+    version: 'detect'
+  typescript: true
+  node: true
+
+extends:
+  - 'eslint:recommended'
+  - 'plugin:import/recommended'
+  - 'plugin:import/typescript'
+  - 'plugin:@typescript-eslint/recommended'
+  - 'plugin:@typescript-eslint/recommended-requiring-type-checking'
+  - 'plugin:@typescript-eslint/strict'
+  - 'plugin:@typescript-eslint/strict-type-checked'
+  - 'plugin:@typescript-eslint/stylistic'
+  - 'plugin:@typescript-eslint/stylistic-type-checked'
+  - 'plugin:unicorn/recommended'
+  - 'plugin:sonarjs/recommended'
+  - 'plugin:react/recommended'
+  - 'plugin:react/jsx-runtime'
+  - 'plugin:react-hooks/recommended'
+  - 'plugin:jsx-a11y/recommended'
+
+plugins:
+  - simple-import-sort
+
+rules:
+  react/prop-types:
+    - off
+  no-restricted-syntax:
+    - error
+    - selector: 'SwitchCase > *.consequent[type!="BlockStatement"]'
+      message: Switch cases without blocks are forbidden.
+    - selector: 'ExportAllDeclaration,ImportAllDeclaration'
+      message: Export/Import all (*) is forbidden.
+    - selector: >-
+        ImportDeclaration[importKind=type],ExportNamedDeclaration[exportKind=type]
+      message: >-
+        Avoid import/export type { Type } from './module'. Prefer import/export
+        { type Type } from './module'.
+    - selector: 'TSEnumDeclaration,ClassDeclaration[abstract=true]'
+      message: TS enum are forbidden use js object instead
+  no-console:
+    - warn
+  max-params:
+    - error
+    - 3
+  no-multiple-empty-lines:
+    - error
+    - max: 1
+  curly:
+    - error
+    - all
+  unicorn/no-null:
+    - 'off'
+  unicorn/prevent-abbreviations:
+    - error
+    - allowList:
+        props: true
+  '@typescript-eslint/padding-line-between-statements':
+    - error
+    - blankLine: never
+      prev: export
+      next: export
+    - blankLine: always
+      prev:
+        - const
+        - class
+      next: export
+  simple-import-sort/imports:
+    - error
+  simple-import-sort/exports:
+    - error
+  import/no-unresolved:
+    - 'off'
+  import/extensions:
+    - error
+    - always
+    - ignorePackages: true
+  import/newline-after-import:
+    - error
+    - count: 1
+  '@typescript-eslint/consistent-type-definitions':
+    - error
+    - type
+  '@typescript-eslint/non-nullable-type-assertion-style':
+    - 'off'
+  '@typescript-eslint/return-await':
+    - 'off'
+  '@typescript-eslint/quotes':
+    - error
+    - single
+  '@typescript-eslint/consistent-type-imports':
+    - error
+  '@typescript-eslint/consistent-type-exports':
+    - error
+  '@typescript-eslint/explicit-function-return-type':
+    - error
+    - allowTypedFunctionExpressions: true
+  '@typescript-eslint/no-empty-interface':
+    - error
+    - allowSingleExtends: true
+  '@typescript-eslint/explicit-member-accessibility':
+    - error
+  '@typescript-eslint/object-curly-spacing':
+    - error
+    - always
+  '@typescript-eslint/semi':
+    - error
+    - always
+  '@typescript-eslint/no-magic-numbers':
+    - error
+    - ignoreEnums: true
+      ignoreNumericLiteralTypes: true
+      ignoreReadonlyClassProperties: true
+      ignoreTypeIndexes: true
+      ignore:
+        - 0
+        - 1
+  '@typescript-eslint/no-unsafe-member-access':
+    - 'off'
+  '@typescript-eslint/no-unsafe-assignment':
+    - 'off'
+  '@typescript-eslint/no-unsafe-call':
+    - 'off'
+  '@typescript-eslint/no-unsafe-return':
+    - 'off'
+  '@typescript-eslint/no-unsafe-argument':
+    - 'off'
+  '@typescript-eslint/restrict-template-expressions':
+    - 'off'
+  '@typescript-eslint/no-redundant-type-constituents':
+    - 'off'
+  '@typescript-eslint/prefer-nullish-coalescing':
+    - 'off'
+
+overrides:
+  - files:
+      - vite.config.ts
+    rules:
+      import/no-default-export:
+        - off
+  - files:
+      - '*.d.ts'
+    rules:
+      unicorn/prevent-abbreviations:
+        - off
+      '@typescript-eslint/consistent-type-definitions':
+        - off
+  - files:
+      - './src/bundles/common/redux/error-middleware.ts'
+    rules:
+      '@typescript-eslint/no-unused-vars': 'off'
+      '@typescript-eslint/no-unnecessary-condition': 'off'
+      unicorn/consistent-function-scoping:
+       - off

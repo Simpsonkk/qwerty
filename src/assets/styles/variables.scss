@@ -1,0 +1,44 @@
+:root {
+  // *Basic Colors*
+
+  // White
+  --white-1: white;
+
+  // Grey
+  --grey-1: rgb(239, 239, 239);
+  --grey-2: rgba(117, 111, 111, 0.76);
+
+  // Blue
+  --blue-1: rgba(8, 113, 210, 0.839);
+
+  // Black
+  --black-1: black;
+
+  // *Font*
+
+  // Font family
+  --font-family: sans-serif;
+
+  // Font sizes
+  --font-size-smallest: 8px;
+  --font-size-xss: 12px;
+  --font-size-xs: 14px;
+  --font-size-base-xs: 15px;
+  --font-size-base: 16px;
+  --font-size-base-sm: 18px;
+  --font-size-sm: 20px;
+  --font-size-md: 24px;
+  --font-size-base-md: 28px;
+  --font-size-ml: 30px;
+  --font-size-l: 32px;
+  --font-size-lg: 34px;
+  --font-size-xl: 48px;
+  --font-size-xxl: 60px;
+  --font-size-xxxl: 96px;
+
+  // Font weight
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+}
