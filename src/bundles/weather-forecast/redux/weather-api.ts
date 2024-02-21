@@ -1,24 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { WeatherApiPath } from '~/bundles/weather-forecast/enums/weather-api-path.js';
-
-type SelectedWeatherDay = {
-  tempmax: string;
-  tempmin: string;
-  icon: string;
-  datetime: string;
-};
-
-type WeatherForecast = {
-  address: string;
-  days: SelectedWeatherDay[];
-};
-
-type DateRangeWithCity = {
-  city: string;
-  startDate?: string;
-  endDate?: string;
-};
+import { type DateRangeWithCity } from '~/bundles/weather-forecast/types/date-range-with-city.type.js';
+import { type WeatherForecast } from '~/bundles/weather-forecast/types/weather-forecast.type.js';
 
 export const weatherApi = createApi({
   reducerPath: 'weatherApi',

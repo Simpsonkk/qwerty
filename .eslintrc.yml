@@ -43,11 +43,6 @@ rules:
       message: Switch cases without blocks are forbidden.
     - selector: 'ExportAllDeclaration,ImportAllDeclaration'
       message: Export/Import all (*) is forbidden.
-    - selector: >-
-        ImportDeclaration[importKind=type],ExportNamedDeclaration[exportKind=type]
-      message: >-
-        Avoid import/export type { Type } from './module'. Prefer import/export
-        { type Type } from './module'.
     - selector: 'TSEnumDeclaration,ClassDeclaration[abstract=true]'
       message: TS enum are forbidden use js object instead
   no-console:
@@ -142,6 +137,8 @@ rules:
   '@typescript-eslint/no-redundant-type-constituents':
     - 'off'
   '@typescript-eslint/prefer-nullish-coalescing':
+    - 'off'
+  unicorn/explicit-length-check: 
     - 'off'
 
 overrides:

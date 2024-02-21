@@ -1,16 +1,20 @@
+import { type Trip } from '~/bundles/weather-forecast/types/trip.type.js';
+
 import styles from './styles.module.scss';
 
-const TripCard: React.FC = () => {
+type Properties = {
+  trip: Trip;
+};
+
+const TripCard: React.FC<Properties> = ({ trip }) => {
   return (
     <li className={styles.card}>
-      <img
-        className={styles.image}
-        src="src/assets/images/cities/kharkiv.jpg"
-        alt=""
-      />
+      <img className={styles.image} src={trip.image} alt={trip.city} />
       <div className={styles.textWrapper}>
-        <b>Kharkiv</b>
-        <p className={styles.date}>17.03.2023 - 23.07.2023</p>
+        <b>{trip.city}</b>
+        <p className={styles.date}>
+          {trip.startDate} - {trip.endDate}
+        </p>
       </div>
     </li>
   );

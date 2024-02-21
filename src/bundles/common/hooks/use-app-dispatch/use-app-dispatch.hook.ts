@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
 
-import { type store } from '~/framework/store/store.js';
+import { type store } from '~/bundles/common/redux/store.js';
 
-const useAppDispatch: () => typeof store.instance.dispatch = () =>
-    useDispatch<typeof store.instance.dispatch>();
+const useAppDispatch: () => typeof store.dispatch = () => useDispatch();
 
 export { useAppDispatch };
