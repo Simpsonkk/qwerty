@@ -1,3 +1,9 @@
+import { getValidClassNames } from '~/bundles/common/helpers/get-valid-class-names.helper.js';
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '~/bundles/common/hooks/hooks.js';
+import { saveSelectedTrip } from '~/bundles/weather-forecast/redux/trip-slice.js';
 import { type Trip } from '~/bundles/weather-forecast/types/trip.type.js';
 
 import styles from './styles.module.scss';
@@ -7,8 +13,20 @@ type Properties = {
 };
 
 const TripCard: React.FC<Properties> = ({ trip }) => {
+  const dispatch = useAppDispatch();
+
+  const selectedTrip = useAppSelector((state) => state.trip.selectedTrip);
+
+  const selectTrip = (): void => void dispatch(saveSelectedTrip(trip));
+
   return (
-    <li className={styles.card}>
+    <li
+      className={getValidClassNames(
+        styles.card,
+        selectedTrip.city === trip.city ? styles.selectedCard : '',
+      )}
+      onClick={selectTrip}
+    >
       <img className={styles.image} src={trip.image} alt={trip.city} />
       <div className={styles.textWrapper}>
         <b>{trip.city}</b>

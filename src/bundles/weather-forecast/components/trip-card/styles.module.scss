@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+.selectedCard {
+  border-color: var(--blue-1);
+}
+
 .textWrapper {
   display: flex;
   flex-direction: column;

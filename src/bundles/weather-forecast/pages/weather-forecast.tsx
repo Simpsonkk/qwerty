@@ -4,16 +4,6 @@ import TripWeatherForecast from '~/bundles/weather-forecast/components/trip-weat
 import styles from './styles.module.scss';
 
 const WeatherForecast: React.FC = () => {
-  // const { data, isLoading } = useGetWeatherForecastQuery({
-  //   city: 'Kharkiv',
-  //   startDate: '2024-02-21',
-  //   endDate: '2024-02-26',
-  // });
-
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
-
   return (
     <main className={styles.wrapper}>
       <TripWeatherForecast />

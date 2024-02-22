@@ -5,24 +5,26 @@ import { TripService } from '~/bundles/weather-forecast/services/trip-service.js
 import { type Trip } from '~/bundles/weather-forecast/types/trip.type.js';
 
 type InitialState = {
-  selectedTripCity: string;
+  selectedTrip: Trip;
   trips: Trip[];
 };
 
+const trips = TripService.getTrips();
+
 const initialState: InitialState = {
-  selectedTripCity: '',
-  trips: TripService.getTrips(),
+  selectedTrip: trips[0],
+  trips: trips,
 };
 
 const tripSlice = createSlice({
   name: 'tripSlice',
   initialState,
   reducers: {
-    saveSelectedTripCity: (state, action: PayloadAction<string>) => {
-      state.selectedTripCity = action.payload;
+    saveSelectedTrip: (state, action: PayloadAction<Trip>) => {
+      state.selectedTrip = action.payload;
     },
   },
 });
 
-export const { saveSelectedTripCity } = tripSlice.actions;
+export const { saveSelectedTrip } = tripSlice.actions;
 export const tripReducer = tripSlice.reducer;

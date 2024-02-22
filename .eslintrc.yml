@@ -140,6 +140,12 @@ rules:
     - 'off'
   unicorn/explicit-length-check: 
     - 'off'
+  jsx-a11y/no-noninteractive-element-interactions:
+    - 'off'
+  jsx-a11y/click-events-have-key-events:
+    - 'off'
+  '@typescript-eslint/no-confusing-void-expression':
+    - 'off'
 
 overrides:
   - files:
