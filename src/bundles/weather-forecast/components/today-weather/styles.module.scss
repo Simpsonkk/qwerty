@@ -1,8 +1,8 @@
 .wrapper {
   width: 35%;
   height: 100vh;
-  background-color: rgba(2, 32, 92, 0.888);
   color: var(--white-1);
+  background-color: rgb(2 32 92 / 88.8%);
 }
 
 .image {
@@ -19,21 +19,21 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: end;
-  margin-inline: auto;
-  margin-top: 200px;
-  height: 150px;
   width: 150px;
+  height: 150px;
+  margin-top: 200px;
   font-size: var(--font-size-base-md);
+  margin-inline: auto;
 }
 
 .city {
-  font-size: var(--font-size-sm);
   margin-right: 20px;
+  font-size: var(--font-size-sm);
 }
 
 .temperature {
-  font-size: var(--font-size-xxl);
   margin-top: 10px;
+  font-size: var(--font-size-xxl);
 }
 
 .degree {
@@ -47,9 +47,9 @@
 }
 
 .time {
+  margin-bottom: 10px;
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-md);
-  margin-bottom: 10px;
 }
 
 .timeUnit {

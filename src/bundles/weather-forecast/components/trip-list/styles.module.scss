@@ -1,11 +1,11 @@
 .tripList {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  column-gap: 50px;
-  margin-block: 25px;
-  padding-bottom: 10px;
   position: relative;
+  display: flex;
+  padding-bottom: 10px;
+  overflow-x: auto;
+  column-gap: 50px;
+  scrollbar-width: thin;
+  margin-block: 25px;
 }
 
 .buttonsWrapper {
@@ -13,27 +13,27 @@
 }
 
 .cancelButton {
+  margin-right: 10px;
   background-color: transparent;
   border: 1px solid var(--grey-3);
+  border-radius: 2px;
   padding-inline: 10px;
   padding-block: 5px;
-  margin-right: 10px;
-  border-radius: 2px;
 }
 
 .saveButton {
+  color: var(--white-1);
   background-color: var(--blue-1);
   border: 1px solid var(--grey-3);
+  border-radius: 2px;
   padding-inline: 15px;
   padding-block: 5px;
-  color: var(--white-1);
-  border-radius: 2px;
 }
 
 .datePicker {
   height: 40px;
-  border: 1px solid var(--grey-3);
   margin-top: 10px;
+  border: 1px solid var(--grey-3);
   padding-inline: 10px;
 }
 

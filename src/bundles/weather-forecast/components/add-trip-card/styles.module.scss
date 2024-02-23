@@ -1,17 +1,17 @@
 .card {
-  height: 300px;
-  min-width: 220px;
-  background: linear-gradient(to bottom, var(--grey-1) 70%, var(--white-1) 30%);
-  text-align: center;
-  padding-top: 100px;
   position: sticky;
   right: 0;
   z-index: 99;
+  min-width: 220px;
+  height: 300px;
+  padding-top: 100px;
   font-weight: var(--font-weight-semi-bold);
+  text-align: center;
+  background: linear-gradient(to bottom, var(--grey-1) 70%, var(--white-1) 30%);
   cursor: pointer;
 }
 
 .plus {
-  font-size: var(--font-size-lg);
   margin-bottom: 5px;
+  font-size: var(--font-size-lg);
 }

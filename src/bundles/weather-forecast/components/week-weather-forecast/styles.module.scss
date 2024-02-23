@@ -4,10 +4,10 @@
 
 .weekWeatherForecast {
   display: flex;
-  padding-block: 10px;
-  column-gap: 35px;
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-width: thin;
+  column-gap: 35px;
   transform: rotateX(180deg);
+  padding-block: 10px;
+  scrollbar-width: thin;
 }
