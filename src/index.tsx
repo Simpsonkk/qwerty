@@ -11,7 +11,7 @@ import WeatherForecast from '~/bundles/weather-forecast/pages/weather-forecast.j
 import { AppRoute } from './bundles/common/enums/enums.js';
 
 createRoot(document.querySelector('#root') as HTMLElement).render(
-  // <StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <RouterProvider
         routes={[
@@ -25,12 +25,8 @@ createRoot(document.querySelector('#root') as HTMLElement).render(
               },
             ],
           },
-          {
-            path: AppRoute.NOT_FOUND,
-            element: '',
-          },
         ]}
       />
     </Provider>
-  // </StrictMode>,
+  </StrictMode>,
 );

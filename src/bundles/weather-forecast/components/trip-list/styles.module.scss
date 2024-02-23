@@ -7,3 +7,41 @@
   padding-bottom: 10px;
   position: relative;
 }
+
+.buttonsWrapper {
+  margin-left: auto;
+}
+
+.cancelButton {
+  background-color: transparent;
+  border: 1px solid var(--grey-3);
+  padding-inline: 10px;
+  padding-block: 5px;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.saveButton {
+  background-color: var(--blue-1);
+  border: 1px solid var(--grey-3);
+  padding-inline: 15px;
+  padding-block: 5px;
+  color: var(--white-1);
+  border-radius: 2px;
+}
+
+.datePicker {
+  height: 40px;
+  border: 1px solid var(--grey-3);
+  margin-top: 10px;
+  padding-inline: 10px;
+}
+
+.dateLabel {
+  margin-top: 10px;
+}
+
+.required {
+  color: var(--red-1);
+}
+

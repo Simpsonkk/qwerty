@@ -9,8 +9,14 @@
   left: 18px;
 }
 
+.wrapper {
+  display: flex;
+  gap: 10px;
+}
+
 .inputWrapper {
   position: relative;
+  margin-right: 30px;
 }
 
 .input {
@@ -24,13 +30,10 @@
   border-radius: 7px;
   border: none;
   font-size: var(--font-size-base-sm);
+}
 
-  &:focus {
-    outline: 2px solid var(--blue-1);
-  }
-
-  &::placeholder {
-    color: var(--black-1);
-    font-size: var(--font-size-base);
-  }
+.button {
+  width: 100px;
+  border-radius: 5px;
+  border: none;
 }

@@ -1,8 +1,12 @@
 import styles from './styles.module.scss';
 
-const AddTripCard: React.FC = () => {
+type Properties = {
+  onOpenModal: () => void;
+};
+
+const AddTripCard: React.FC<Properties> = ({ onOpenModal }) => {
   return (
-    <div className={styles.card}>
+    <div onClick={onOpenModal} className={styles.card}>
       <p className={styles.plus}>+</p>
       <p>Add trip</p>
     </div>

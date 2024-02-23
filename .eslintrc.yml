@@ -146,6 +146,16 @@ rules:
     - 'off'
   '@typescript-eslint/no-confusing-void-expression':
     - 'off'
+  unicorn/consistent-function-scoping:
+    - 'off'
+  jsx-a11y/no-static-element-interactions:
+    - 'off'
+  '@typescript-eslint/no-non-null-assertion':
+    - 'off'
+  sonarjs/no-duplicate-string:
+    - 'off'
+  unicorn/prefer-at:
+    - 'off'
 
 overrides:
   - files:

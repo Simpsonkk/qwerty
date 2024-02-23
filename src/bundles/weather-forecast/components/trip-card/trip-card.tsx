@@ -23,7 +23,7 @@ const TripCard: React.FC<Properties> = ({ trip }) => {
     <li
       className={getValidClassNames(
         styles.card,
-        selectedTrip.city === trip.city ? styles.selectedCard : '',
+        selectedTrip.id === trip.id ? styles.selectedCard : '',
       )}
       onClick={selectTrip}
     >

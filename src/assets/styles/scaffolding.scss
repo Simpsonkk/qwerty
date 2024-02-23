@@ -34,3 +34,34 @@ label {
 ul {
   list-style-type: none;
 }
+
+button {
+  transition: transform 0.2s;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--grey-1);
+    color: var(--black-1);
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+input {
+  &:focus {
+    outline: 2px solid var(--blue-1);
+  }
+
+  &::placeholder {
+    color: var(--black-1);
+    font-size: var(--font-size-base);
+  }
+}

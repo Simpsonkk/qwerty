@@ -10,13 +10,19 @@ import { useEffect, useState } from 'react';
 
 import Loader from '~/bundles/common/components/loader/loader.js';
 import { useAppSelector } from '~/bundles/common/hooks/hooks.js';
+import {
+  HOURS_IN_DAY,
+  MINUTES_IN_HOUR,
+  ONE_MINUTE,
+  SECONDS_IN_MINUTE,
+  TIME_UNITS,
+  ZERO,
+} from '~/bundles/weather-forecast/components/today-weather/constants.js';
 import { useGetWeatherForecastQuery } from '~/bundles/weather-forecast/redux/weather-api.js';
 
 import styles from './styles.module.scss';
 
 const TodayWeather: React.FC = () => {
-  // TODO: separate timer
-
   const { city, startDate } = useAppSelector(
     (state) => state.trip.selectedTrip,
   );
@@ -30,15 +36,15 @@ const TodayWeather: React.FC = () => {
   });
 
   const [timeDifference, setTimeDifference] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    days: ZERO,
+    hours: ZERO,
+    minutes: ZERO,
+    seconds: ZERO,
   });
 
   useEffect(() => {
     if (startDate) {
-      const updateTimer = () => {
+      const updateTimer = (): void => {
         const startDateParsed = parseISO(startDate);
         const currentDate = new Date();
 
@@ -48,14 +54,14 @@ const TodayWeather: React.FC = () => {
         const secondsDiff = differenceInSeconds(startDateParsed, currentDate);
 
         setTimeDifference({
-          days: Math.max(daysDiff, 0),
-          hours: Math.max(hoursDiff % 24, 0),
-          minutes: Math.max(minutesDiff % 60, 0),
-          seconds: Math.max(secondsDiff % 60, 0),
+          days: Math.max(daysDiff, ZERO),
+          hours: Math.max(hoursDiff % HOURS_IN_DAY, ZERO),
+          minutes: Math.max(minutesDiff % MINUTES_IN_HOUR, ZERO),
+          seconds: Math.max(secondsDiff % SECONDS_IN_MINUTE, ZERO),
         });
       };
 
-      const intervalId = setInterval(updateTimer, 1000);
+      const intervalId = setInterval(updateTimer, ONE_MINUTE);
 
       return () => clearInterval(intervalId);
     }
@@ -68,40 +74,36 @@ const TodayWeather: React.FC = () => {
       ) : (
         <>
           <div className={styles.weather}>
-            <b>
+            <b className={styles.weekDay}>
               {isSuccess &&
-                format(new Date(todayForecast.days[0].datetime), 'EEEE')}
+                format(new Date(todayForecast.days[ZERO].datetime), 'EEEE')}
             </b>
             <div className={styles.temperatureWrapper}>
               <img
                 className={styles.image}
-                src={`src/assets/images/weather-icons/${todayForecast?.days[0].icon}.svg`}
-                alt={todayForecast?.days[0].icon}
+                src={`src/assets/images/weather-icons/${todayForecast?.days[ZERO].icon}.svg`}
+                alt={todayForecast?.days[ZERO].icon}
               />
               <p className={styles.temperature}>
-                {isSuccess && todayForecast.days[0].temp}
+                {isSuccess && todayForecast.days[ZERO].temp}
                 <sup className={styles.degree}>°C</sup>
               </p>
             </div>
             <p className={styles.city}>{city}</p>
           </div>
           <div className={styles.timer}>
-            <div className={styles.timeWrapper}>
-              <p className={styles.time}>{timeDifference.days}</p>
-              <p className={styles.timeUnit}>DAYS</p>
-            </div>
-            <div className={styles.timeWrapper}>
-              <p className={styles.time}>{timeDifference.hours}</p>
-              <p className={styles.timeUnit}>HOURS</p>
-            </div>
-            <div className={styles.timeWrapper}>
-              <p className={styles.time}>{timeDifference.minutes}</p>
-              <p className={styles.timeUnit}>MINUTES</p>
-            </div>
-            <div className={styles.timeWrapper}>
-              <p className={styles.time}>{timeDifference.seconds}</p>
-              <p className={styles.timeUnit}>SECONDS</p>
-            </div>
+            {TIME_UNITS.map((timeUnit) => (
+              <div key={timeUnit} className={styles.timeWrapper}>
+                <p className={styles.time}>
+                  {
+                    timeDifference[
+                      timeUnit.toLowerCase() as keyof typeof timeDifference
+                    ]
+                  }
+                </p>
+                <p className={styles.timeUnit}>{timeUnit}</p>
+              </div>
+            ))}
           </div>
         </>
       )}
